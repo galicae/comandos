@@ -5,4 +5,4 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://galicae.github.io',
                 'git_url': 'https://github.com/galicae/samap-viz',
                 'lib_path': 'samap_viz'},
-  'syms': {'samap_viz.core': {'samap_viz.core.foo': ('core.html#foo', 'samap_viz/core.py')}}}
+  'syms': {'samap_viz.core': {'samap_viz.core.procrustes': ('util.html#procrustes', 'samap_viz/core.py')}}}
