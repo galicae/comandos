@@ -5,4 +5,8 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://galicae.github.io',
                 'git_url': 'https://github.com/galicae/samap-viz',
                 'lib_path': 'samap_viz'},
-  'syms': {'samap_viz.core': {'samap_viz.core.procrustes': ('util.html#procrustes', 'samap_viz/core.py')}}}
+  'syms': { 'samap_viz.core': {'samap_viz.core.procrustes': ('util.html#procrustes', 'samap_viz/core.py')},
+            'samap_viz.util': { 'samap_viz.util.grouped_obs_mean': ('util.html#grouped_obs_mean', 'samap_viz/util.py'),
+                                'samap_viz.util.grouped_obs_percent': ('util.html#grouped_obs_percent', 'samap_viz/util.py'),
+                                'samap_viz.util.grouped_obs_present': ('util.html#grouped_obs_present', 'samap_viz/util.py'),
+                                'samap_viz.util.procrustes': ('util.html#procrustes', 'samap_viz/util.py')}}}
