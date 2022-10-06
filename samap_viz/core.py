@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['procrustes']
 
-# %% ../nbs/00_util.ipynb 4
+# %% ../nbs/00_util.ipynb 5
 def procrustes(x:str, # input string
                appropriate_length:int=50, # desired length
                pad_with:str=" ", # character to pad with
