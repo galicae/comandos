@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['procrustes', 'grouped_obs_mean', 'grouped_obs_present', 'grouped_obs_percent']
 
-# %% ../nbs/00_util.ipynb 4
+# %% ../nbs/00_util.ipynb 6
 def procrustes(x:str, # input string
                appropriate_length:int=50, # desired length
                pad_with:str=" ", # character to pad with
@@ -23,7 +23,7 @@ def procrustes(x:str, # input string
             print("Invalid side argument; returning string as-is.")
     return x
 
-# %% ../nbs/00_util.ipynb 10
+# %% ../nbs/00_util.ipynb 11
 def grouped_obs_mean(adata:ad.AnnData, # AnnData object to analyse
                         group_key:str, # `.obs` category to group by
                         layer:str=None # layer to use. If none, use `.X`
@@ -46,7 +46,7 @@ def grouped_obs_mean(adata:ad.AnnData, # AnnData object to analyse
         out[group] = np.ravel(X.mean(axis=0, dtype=np.float64))
     return out
 
-# %% ../nbs/00_util.ipynb 17
+# %% ../nbs/00_util.ipynb 19
 def grouped_obs_present(adata:ad.AnnData, # AnnData object to analyse
                         group_key:str, # `.obs` category to group by
                         layer:str=None # layer to use. If none, use `.X`
@@ -69,7 +69,7 @@ def grouped_obs_present(adata:ad.AnnData, # AnnData object to analyse
         out[group] = np.ravel((X > 0).sum(axis=0, dtype=np.float64))
     return out
 
-# %% ../nbs/00_util.ipynb 24
+# %% ../nbs/00_util.ipynb 26
 def grouped_obs_percent(adata:ad.AnnData, # AnnData object to analyse
                         group_key:str, # `.obs` category to group by
                         layer:str=None # layer to use. If none, use `.X`
