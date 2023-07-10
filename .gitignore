@@ -1,3 +1,6 @@
+*.tar.gz
+example_data/
+
 _docs/
 _proc/
 
