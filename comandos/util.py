@@ -11,6 +11,7 @@ from scipy.stats import gaussian_kde
 import scanpy as sc
 import anndata as ad
 
+import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
 from samap.mapping import SAMAP
@@ -152,7 +153,7 @@ def find_center(coords):
 
 # %% ../nbs/00_util.ipynb 36
 def map_fine_to_coarse(
-    sm, species, fine, coarse, plot=sc.pl.umap, include_coarse=False
+    sm, species, fine, coarse=None, plot=sc.pl.umap, include_coarse=False
 ):
     """
     Extract the mapping of fine to coarse clusters from a SAMap object.
@@ -165,8 +166,9 @@ def map_fine_to_coarse(
         Species ID of the correct SAM object.
     fine : str
         Fine clustering slot name.
-    coarse : str
-        Coarse clustering slot name.
+    coarse : str, optional
+        Coarse clustering slot name. If None, use the same as `fine`, mapping each cluster to
+        itself. (default: `None`).
     plot : function, optional
         Plotting function to use; this will correctly set the colors (default: `sc.pl.umap`).
     include_coarse : bool, optional
@@ -181,6 +183,9 @@ def map_fine_to_coarse(
     handles: list
         A list of `matplotlib.patches.Patch` objects with the colors for each coarse cluster.
     """
+    if coarse is None:
+        coarse = fine
+
     fine_to_coarse = (
         sm.sams[species]
         .adata.obs[[fine, coarse]]
@@ -188,7 +193,10 @@ def map_fine_to_coarse(
         .reset_index(drop=True)
     )
 
-    plot(sm.sams[species].adata, color=coarse)
+    plt.ioff()
+    _fig = plot(sm.sams[species].adata, color=coarse, return_fig=True)
+    plt.close(_fig)
+    plt.ion()
 
     lut = dict(
         zip(
