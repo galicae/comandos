@@ -3,30 +3,6 @@
 # %% auto 0
 __all__ = ['highlighted_dimplot', 'plot_overview']
 
-# %% ../nbs/01_plot.ipynb 3
-import pickle
-import os
-
-import numpy as np
-import pandas as pd
-
-import anndata as ad
-import scanpy as sc
-from samap.mapping import SAMAP
-
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-from matplotlib.patches import Circle
-import seaborn as sns
-
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.figure_factory as ff
-
-from plotly.subplots import make_subplots
-
-from . import util
-
 # %% ../nbs/01_plot.ipynb 5
 def highlighted_dimplot(
     adata,

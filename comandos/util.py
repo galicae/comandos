@@ -4,17 +4,16 @@
 __all__ = ['procrustes', 'grouped_obs_mean', 'grouped_obs_present', 'grouped_obs_percent', 'find_center', 'map_fine_to_coarse']
 
 # %% ../nbs/00_util.ipynb 4
+from typing import Union
+
+import anndata as ad
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy.stats import gaussian_kde
-
 import scanpy as sc
-import anndata as ad
-
-import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
-
 from samap.mapping import SAMAP
+from scipy.stats import gaussian_kde
 
 # %% ../nbs/00_util.ipynb 6
 def procrustes(
@@ -41,7 +40,7 @@ def procrustes(
 def grouped_obs_mean(
     adata: ad.AnnData,  # AnnData object to analyse
     group_key: str,  # `.obs` category to group by
-    layer: str = None,  # layer to use. If none, use `.X`
+    layer: Union[str, None] = None,  # layer to use. If none, use `.X`
 ) -> pd.DataFrame:  # a groups$\times$genes dataframe with the average expression
     "Helper function to calculate average expression per group in an `AnnData` object."
     if layer is not None:
@@ -62,7 +61,7 @@ def grouped_obs_mean(
     return out
 
 # %% ../nbs/00_util.ipynb 19
-def grouped_obs_present(adata, group_key, layer=None):
+def grouped_obs_present(adata, group_key, layer=Union[str, None]):
     """
     Helper function to calculate how many cells express each gene per group in an `AnnData` object.
 
@@ -72,7 +71,7 @@ def grouped_obs_present(adata, group_key, layer=None):
         AnnData object to analyse.
     group_key : str
         `.obs` category to group by.
-    layer : str, optional
+    layer : Union[str, None], optional
         Layer to use. If none, use `.X`.
 
     Returns
@@ -98,7 +97,7 @@ def grouped_obs_present(adata, group_key, layer=None):
     return out
 
 # %% ../nbs/00_util.ipynb 26
-def grouped_obs_percent(adata, group_key, layer=None):
+def grouped_obs_percent(adata, group_key, layer=Union[str, None]):
     """
     Helper function to calculate what percentage of cells express each gene per group in an
     `AnnData` object.

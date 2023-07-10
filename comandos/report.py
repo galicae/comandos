@@ -3,20 +3,6 @@
 # %% auto 0
 __all__ = ['plot_overview']
 
-# %% ../nbs/02_report.ipynb 4
-import numpy as np
-import pandas as pd
-
-import anndata as ad
-import scanpy as sc
-from samap.mapping import SAMAP
-
-import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
-import seaborn as sns
-
-from . import util
-
 # %% ../nbs/02_report.ipynb 5
 def plot_overview(to_plot, celltype_from, celltype_to, figheight=20, save=None):
     """
