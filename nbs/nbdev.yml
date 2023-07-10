@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "samviz"
-  site-url: "https://galicae.github.io/samap-viz"
-  description: "Advanced visualizations for the comparison of single-cell datasets. Conceived as a SAMap add-on, but does not require it."
+  title: "comandos"
+  site-url: "https://galicae.github.io/comandos"
+  description: "Advanced visualizations for the comparison of single-cell datasets. Conceived as a SAMap add-on, but many parts do not require it."
   repo-branch: main
-  repo-url: "https://github.com/galicae/samap-viz"
+  repo-url: "https://github.com/galicae/comandos"
