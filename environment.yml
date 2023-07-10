@@ -1,5 +1,6 @@
 name: comandos
 channels:
+  - fastai
   - conda-forge
   - bioconda
   - defaults
@@ -14,6 +15,7 @@ dependencies:
   - argon2-cffi-bindings=21.2.0=py39h02fc5c5_3
   - arpack=3.7.0=h58ebc17_2
   - asttokens=2.2.1=pyhd8ed1ab_0
+  - astunparse=1.6.3=pyhd8ed1ab_0
   - attrs=22.2.0=pyh71513ae_0
   - babel=2.12.1=pyhd8ed1ab_1
   - backcall=0.2.0=pyh9f0ad1d_0
@@ -53,9 +55,11 @@ dependencies:
   - defusedxml=0.7.1=pyhd8ed1ab_0
   - descartes=1.1.0=py_4
   - entrypoints=0.4=pyhd8ed1ab_0
+  - execnb=0.1.5=py_0
   - executing=1.2.0=pyhd8ed1ab_0
   - expat=2.5.0=hb7217d7_1
   - fast-histogram=0.10=py39h4d8bf0d_2
+  - fastcore=1.5.29=py_0
   - fiona=1.9.3=py39h18c9a96_0
   - flake8=6.0.0=pyhd8ed1ab_0
   - flit-core=3.8.0=pyhd8ed1ab_0
@@ -76,6 +80,7 @@ dependencies:
   - geos=3.11.2=hb7217d7_0
   - geotiff=1.7.1=hea8fa61_8
   - gettext=0.21.1=h0186832_0
+  - ghapi=1.0.3=py_0
   - giflib=5.2.1=h1a8c8d9_3
   - glpk=5.0=h6d7a090_0
   - gmp=6.2.1=h9f76cd9_0
@@ -177,6 +182,7 @@ dependencies:
   - nbconvert=7.3.1=pyhd8ed1ab_0
   - nbconvert-core=7.3.1=pyhd8ed1ab_0
   - nbconvert-pandoc=7.3.1=pyhd8ed1ab_0
+  - nbdev=2.3.12=py_0
   - nbformat=5.8.0=pyhd8ed1ab_0
   - ncurses=6.3=h07bb92c_1
   - nest-asyncio=1.5.6=pyhd8ed1ab_0
@@ -187,7 +193,7 @@ dependencies:
   - nss=3.89=h789eff7_0
   - numpy=1.23.5=py39hefdcf20_0
   - openjpeg=2.5.0=hbc2ba62_2
-  - openssl=3.1.0=h53f4e23_3
+  - openssl=3.1.1=h53f4e23_1
   - packaging=23.1=pyhd8ed1ab_0
   - pandas=2.0.0=py39hde7b980_0
   - pandoc=2.19.2=hce30654_2
@@ -279,6 +285,7 @@ dependencies:
   - umap-learn=0.5.3=py39h2804cbe_0
   - unicodedata2=15.0.0=py39h02fc5c5_0
   - urllib3=1.26.15=pyhd8ed1ab_0
+  - watchdog=3.0.0=py39h02fc5c5_0
   - wcwidth=0.2.6=pyhd8ed1ab_0
   - webencodings=0.5.1=py_1
   - websocket-client=1.5.1=pyhd8ed1ab_0
@@ -296,4 +303,24 @@ dependencies:
   - zipp=3.15.0=pyhd8ed1ab_0
   - zlib=1.2.13=h03a7124_4
   - zstd=1.5.2=hf913c23_6
-prefix: /Users/npapadop/mambaforge/envs/comandos
+  - pip:
+      - bokeh==3.2.0
+      - colorcet==3.0.1
+      - dill==0.3.6
+      - harmonypy==0.0.9
+      - hnswlib==0.7.0
+      - holoviews-samap==1.0.1
+      - jupyterlab-quarto==0.2.7
+      - linkify-it-py==2.0.2
+      - markdown==3.4.3
+      - markdown-it-py==3.0.0
+      - mdit-py-plugins==0.4.0
+      - mdurl==0.1.2
+      - numba==0.56.3
+      - panel==1.2.0
+      - param==1.13.0
+      - pyct==0.5.0
+      - pyviz-comms==2.3.2
+      - sam-algorithm==1.0.2
+      - samap==1.0.15
+      - uc-micro-py==1.0.2
