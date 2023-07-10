@@ -4,6 +4,8 @@
 __all__ = ['highlighted_dimplot']
 
 # %% ../nbs/01_plot.ipynb 4
+import pickle
+
 import numpy as np
 import pandas as pd
 

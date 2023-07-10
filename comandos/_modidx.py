@@ -12,4 +12,5 @@ d = { 'settings': { 'branch': 'main',
                                'comandos.util.grouped_obs_mean': ('util.html#grouped_obs_mean', 'comandos/util.py'),
                                'comandos.util.grouped_obs_percent': ('util.html#grouped_obs_percent', 'comandos/util.py'),
                                'comandos.util.grouped_obs_present': ('util.html#grouped_obs_present', 'comandos/util.py'),
+                               'comandos.util.map_fine_to_coarse': ('util.html#map_fine_to_coarse', 'comandos/util.py'),
                                'comandos.util.procrustes': ('util.html#procrustes', 'comandos/util.py')}}}
