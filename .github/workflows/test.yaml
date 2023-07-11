@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Download data
         run: |
-          wget https://www.dropbox.com/scl/fi/gojo9rgetn3ktnhsb2dm7/annaletter.zip?rlkey=txu06dc85zwrskthqakg2yso3&dl=1
-          ls -l
+          cd ${GITHUB_WORKSPACE}
+          cd ..
+          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -O example_data.tar.gz
+          tar xvzf ${GITHUB_WORKSPACE}/example_data.tar.gz
       - uses: fastai/workflows/nbdev-ci@master
