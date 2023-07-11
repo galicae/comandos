@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['procrustes', 'grouped_obs_mean', 'grouped_obs_present', 'grouped_obs_percent', 'find_center', 'map_fine_to_coarse']
 
-# %% ../nbs/00_util.ipynb 4
+# %% ../nbs/00_util.ipynb 3
 from typing import Union
 
 import anndata as ad
@@ -12,10 +12,9 @@ import numpy as np
 import pandas as pd
 import scanpy as sc
 from matplotlib.patches import Patch
-from samap.mapping import SAMAP
 from scipy.stats import gaussian_kde
 
-# %% ../nbs/00_util.ipynb 6
+# %% ../nbs/00_util.ipynb 5
 def procrustes(
     x: str,  # input string
     appropriate_length: int = 50,  # desired length
@@ -36,7 +35,7 @@ def procrustes(
             print("Invalid side argument; returning string as-is.")
     return x
 
-# %% ../nbs/00_util.ipynb 11
+# %% ../nbs/00_util.ipynb 10
 def grouped_obs_mean(
     adata: ad.AnnData,  # AnnData object to analyse
     group_key: str,  # `.obs` category to group by
@@ -60,7 +59,7 @@ def grouped_obs_mean(
         out[group] = np.ravel(X.mean(axis=0, dtype=np.float64))
     return out
 
-# %% ../nbs/00_util.ipynb 19
+# %% ../nbs/00_util.ipynb 18
 def grouped_obs_present(adata, group_key, layer: Union[str, None] = None):
     """
     Helper function to calculate how many cells express each gene per group in an `AnnData` object.
@@ -96,7 +95,7 @@ def grouped_obs_present(adata, group_key, layer: Union[str, None] = None):
         out[group] = np.ravel((X > 0).sum(axis=0, dtype=np.float64))
     return out
 
-# %% ../nbs/00_util.ipynb 26
+# %% ../nbs/00_util.ipynb 25
 def grouped_obs_percent(adata, group_key, layer: Union[str, None] = None):
     """
     Helper function to calculate what percentage of cells express each gene per group in an
@@ -120,7 +119,7 @@ def grouped_obs_percent(adata, group_key, layer: Union[str, None] = None):
     no_cells_per_cluster = adata.obs[group_key].value_counts()
     return num_expressing / no_cells_per_cluster
 
-# %% ../nbs/00_util.ipynb 30
+# %% ../nbs/00_util.ipynb 29
 def find_center(coords):
     """
     A function that estimates a Gaussian probability density for the input data and returns the
@@ -150,7 +149,7 @@ def find_center(coords):
     idx = np.unravel_index(np.argmax(Z), Z.shape)
     return grid_xs[idx], grid_ys[idx]
 
-# %% ../nbs/00_util.ipynb 36
+# %% ../nbs/00_util.ipynb 35
 def map_fine_to_coarse(
     sm, species, fine, coarse=None, plot=sc.pl.umap, include_coarse=False
 ):
