@@ -5,3 +5,4 @@ website:
       - 00_util.ipynb
       - 01_plot.ipynb
       - 02_report.ipynb
+      - hypl.html
