@@ -7,6 +7,7 @@ jobs:
     steps:
       - name: Download data
         run: |
-          wget https://zenodo.org/record/8129708/files/example_data.tar.gz?download=1 -O example_data.tar.gz
-          tar -xzf example_data.tar.gz
+          wget https://www.dropbox.com/scl/fi/gydn50ughj9zkax6tubau/bike.txt?rlkey=prk2d7klww8k06uj663gv6lfq&dl=1 -O test.txt
+          pwd
+          ls -l
       - uses: fastai/workflows/nbdev-ci@master
