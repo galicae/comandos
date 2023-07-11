@@ -1,5 +1,13 @@
+# ignore the archive of example data, if I download it
 *.tar.gz
+# ignore the extracted example data
 example_data/
+# ignore the various outputs of the notebooks
+*.html
+*.json
+*.pdf
+*.png
+*.jpg
 
 _docs/
 _proc/
