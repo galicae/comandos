@@ -5,14 +5,14 @@ __all__ = ['highlighted_dimplot', 'plot_overview']
 
 # %% ../nbs/01_plot.ipynb 5
 def highlighted_dimplot(
-    adata,
-    species,
-    clustering,
-    cluster,
-    embedding="X_umap",
-    highlight="red",
-    figsize=(10, 10),
-    save=None,
+    adata: ad.AnnData,
+    species: str,
+    clustering: str,
+    cluster: str,
+    embedding: str = "X_umap",
+    highlight: str = "red",
+    figsize: tuple = (10, 10),
+    save: Union[str, None] = None,
 ):
     """
     Plot a low-dimensional embedding and highlight a chosen cluster with a superimposed circle.

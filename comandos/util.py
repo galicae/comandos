@@ -61,7 +61,7 @@ def grouped_obs_mean(
     return out
 
 # %% ../nbs/00_util.ipynb 19
-def grouped_obs_present(adata, group_key, layer=Union[str, None]):
+def grouped_obs_present(adata, group_key, layer: Union[str, None] = None):
     """
     Helper function to calculate how many cells express each gene per group in an `AnnData` object.
 
@@ -97,7 +97,7 @@ def grouped_obs_present(adata, group_key, layer=Union[str, None]):
     return out
 
 # %% ../nbs/00_util.ipynb 26
-def grouped_obs_percent(adata, group_key, layer=Union[str, None]):
+def grouped_obs_percent(adata, group_key, layer: Union[str, None] = None):
     """
     Helper function to calculate what percentage of cells express each gene per group in an
     `AnnData` object.
