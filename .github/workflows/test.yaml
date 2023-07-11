@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Download data
         run: |
-          wget https://www.dropbox.com/scl/fi/gydn50ughj9zkax6tubau/bike.txt?rlkey=prk2d7klww8k06uj663gv6lfq&dl=1 -O test.txt
+          wget https://www.dropbox.com/scl/fi/gojo9rgetn3ktnhsb2dm7/annaletter.zip?rlkey=txu06dc85zwrskthqakg2yso3&dl=1
           ls -l
       - uses: fastai/workflows/nbdev-ci@master
