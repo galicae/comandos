@@ -4,13 +4,10 @@
 __all__ = ['filter_OGs', 'assign_homology', 'calculate_orthology_score']
 
 # %% ../nbs/01_genes.ipynb 3
-from pathlib import Path
 from typing import Union
 
 import numpy as np
 import pandas as pd
-
-from . import util
 
 # %% ../nbs/01_genes.ipynb 9
 def filter_OGs(

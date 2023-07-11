@@ -5,8 +5,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: fastai/workflows/nbdev-ci@master
       - name: Download data
         run:
           wget https://zenodo.org/record/8129708/files/example_data.tar.gz?download=1 -O example_data.tar.gz
           tar -xzf example_data.tar.gz
+      - uses: fastai/workflows/nbdev-ci@master
