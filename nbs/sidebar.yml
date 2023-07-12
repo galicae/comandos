@@ -3,6 +3,8 @@ website:
     contents:
       - index.ipynb
       - 00_util.ipynb
-      - 01_plot.ipynb
-      - 02_report.ipynb
+      - 01_genes.ipynb
+      - 02_plot.ipynb
+      - 03_dotplot_util.ipynb
+      - 04_report.ipynb
       - hypl.html
