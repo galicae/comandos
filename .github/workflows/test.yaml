@@ -5,7 +5,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      EXAMPLE_DATA_PATH: $HOME/example_data
+      EXAMPLE_DATA_PATH: ${{ vars.HOME }}/example_data/
     steps:
       - name: Download data
         run: |
