@@ -10,9 +10,9 @@ jobs:
           mkdir -p $HOME/example_data
           cd $HOME
           echo $(ls -la)
-          echo ############
+          echo $(pwd)
           echo $EXAMPLE_DATA_PATH
-          # curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
-          # tar xzf example_data.tar.gz
-          # mv example_data $HOME/
+          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
+          tar xzf example_data.tar.gz
+          echo $(ls $EXAMPLE_DATA_PATH -la)
       - uses: fastai/workflows/nbdev-ci@master
