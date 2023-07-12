@@ -12,7 +12,8 @@ jobs:
           echo $(ls -la)
           echo $(pwd)
           echo $EXAMPLE_DATA_PATH
-          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
-          tar xzf example_data.tar.gz
+          # curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
+          # tar xzf example_data.tar.gz
           echo $(ls $EXAMPLE_DATA_PATH -la)
+          echo $(ls)
       - uses: fastai/workflows/nbdev-ci@master
