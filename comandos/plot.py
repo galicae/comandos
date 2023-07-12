@@ -3,6 +3,29 @@
 # %% auto 0
 __all__ = ['highlighted_dimplot', 'highlighted_heatmap', 'annotated_heatmap', 'paired_dotplot']
 
+# %% ../nbs/02_plot.ipynb 3
+import os
+import pickle
+from typing import Any, Tuple, Union
+
+import anndata as ad
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import plotly
+import plotly.express as px
+import plotly.figure_factory as ff
+import plotly.graph_objects as go
+import scanpy as sc
+import seaborn as sns
+from matplotlib.patches import Circle, Rectangle
+from plotly.subplots import make_subplots
+from samap.mapping import SAMAP
+
+from . import dotplot_util as du
+from . import util
+
 # %% ../nbs/02_plot.ipynb 6
 def highlighted_dimplot(
     adata: ad.AnnData,
