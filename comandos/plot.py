@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['highlighted_dimplot', 'highlighted_heatmap', 'annotated_heatmap', 'dotplot']
 
-# %% ../nbs/02_plot.ipynb 5
+# %% ../nbs/02_plot.ipynb 6
 def highlighted_dimplot(
     adata: ad.AnnData,
     species: str,
@@ -65,7 +65,7 @@ def highlighted_dimplot(
     if save is not None:
         plt.savefig(save)
 
-# %% ../nbs/02_plot.ipynb 12
+# %% ../nbs/02_plot.ipynb 13
 def highlighted_heatmap(to_plot, celltype_from, celltype_to, figheight=20, save=None):
     """
     Plot a heatmap of pairwise similarities between cell types, with a red box highlighting the
@@ -104,7 +104,7 @@ def highlighted_heatmap(to_plot, celltype_from, celltype_to, figheight=20, save=
     if save is not None:
         plt.savefig(save)
 
-# %% ../nbs/02_plot.ipynb 15
+# %% ../nbs/02_plot.ipynb 16
 def _plot_clustermap(
     similarity,
     query_map,
@@ -162,7 +162,7 @@ def _plot_clustermap(
     if save is not None:
         plt.savefig(save)
 
-# %% ../nbs/02_plot.ipynb 16
+# %% ../nbs/02_plot.ipynb 17
 def _plotly_clustermap(
     similarity,
     query_map,
@@ -244,7 +244,7 @@ def _plotly_clustermap(
 
     return fig
 
-# %% ../nbs/02_plot.ipynb 17
+# %% ../nbs/02_plot.ipynb 18
 def annotated_heatmap(
     sm,
     similarity,
@@ -371,8 +371,8 @@ def dotplot(
     # and we might change it inadvertently
     links = connections.copy()
     # demultiplex the connected genes
-    query_genes = unique_genes(links[:, 0])
-    target_genes = unique_genes(links[:, 1])
+    query_genes = du.unique_genes(links[:, 0])
+    target_genes = du.unique_genes(links[:, 1])
 
     # get average expression for each dot
     query_avg_expr, target_avg_expr = du.get_dot_color(
@@ -386,7 +386,7 @@ def dotplot(
         target_gene_names=target_gene_names,
     )
     # get expression percentage for each dot
-    query_perc_expr, target_perc_expr = get_dot_size(
+    query_perc_expr, target_perc_expr = du.get_dot_size(
         query,
         target,
         query_clustering,
@@ -402,12 +402,12 @@ def dotplot(
         for i, gene in enumerate(links[:, 0]):
             if gene is not None:
                 links[i, 0] = query.var[query_gene_names].loc[gene]
-        query_genes = unique_genes(links[:, 0])
+        query_genes = du.unique_genes(links[:, 0])
     if target_gene_names is not None:
         for i, gene in enumerate(links[:, 1]):
             if gene is not None:
                 links[i, 1] = target.var[target_gene_names].loc[gene]
-        target_genes = unique_genes(links[:, 1])
+        target_genes = du.unique_genes(links[:, 1])
 
     # pad gene names with spaces to make plotting more beautiful
     if pad:
@@ -435,16 +435,18 @@ def dotplot(
     target_avg_expr = target_avg_expr.loc[target_clusters]
 
     # highlight target and query clusters to make inspecting the dotplot easier
-    query_clust_col = pu.highlight_cluster(query_clusters, query_cluster)
-    target_clust_col = pu.highlight_cluster(target_clusters, target_cluster)
+    query_clust_col = du.highlight_cluster(query_clusters, query_cluster)
+    target_clust_col = du.highlight_cluster(target_clusters, target_cluster)
 
     # convert the links to an adjacency matrix and use it to find an optimal
     # plotting order for the query/target genes
-    adj_matrix = calculate_adjacency_matrix(links, query_genes, target_genes)
-    _no_components, components = connected_components(adj_matrix, directed=False)
-    query_order, target_order = gene_order(adj_matrix, components, len(query_genes))
+    adj_matrix = du.calculate_adjacency_matrix(links, query_genes, target_genes)
+    _no_components, components = du.connected_components(adj_matrix, directed=False)
+    query_order, target_order = du.gene_order(adj_matrix, components, len(query_genes))
 
-    query_comp_color, target_comp_color = feature_colors(components, len(query_genes))
+    query_comp_color, target_comp_color = du.feature_colors(
+        components, len(query_genes)
+    )
 
     query_genes = query_genes[query_order]
     query_comp_color = query_comp_color[query_order]
@@ -458,7 +460,7 @@ def dotplot(
     target_perc_expr = target_perc_expr.iloc[:, target_order]
 
     if len(target_genes) > 0 and len(query_genes) > 0:
-        _plot_dotplot(
+        du._plot_dotplot(
             query_avg_expr,
             target_avg_expr,
             query_perc_expr,

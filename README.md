@@ -83,12 +83,20 @@ analysis.
 
 ## Install
 
-``` sh
-pip install comandos
+Currently only available from GitHub:
+
+``` bash
+cd /directory/of/choice
+git clone https://github.com/galicae/comandos.git
+cd comandos
+pip install -e .
 ```
 
-Maybe in time I will also make a conda version, but for now I’ll be
-sticking to `pip`.
+<!-- ```sh
+pip install comandos
+``` -->
+
+Planned for the future: - add to PyPi - add to bioconda
 
 ## How to use
 

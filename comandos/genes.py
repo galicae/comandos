@@ -4,12 +4,13 @@
 __all__ = ['filter_OGs', 'assign_homology', 'calculate_orthology_score']
 
 # %% ../nbs/01_genes.ipynb 3
+import os
 from typing import Union
 
 import numpy as np
 import pandas as pd
 
-# %% ../nbs/01_genes.ipynb 9
+# %% ../nbs/01_genes.ipynb 10
 def filter_OGs(
     x: Union[
         list, str
@@ -29,7 +30,7 @@ def filter_OGs(
             ortholog_OG = s
     return [paralog_OG, ortholog_OG]
 
-# %% ../nbs/01_genes.ipynb 14
+# %% ../nbs/01_genes.ipynb 15
 def assign_homology(
     species_OGs,  # the dataframe with the gene_id and the EggNOG OGs
     paralog: str = "Eukaryota",  # the level of the paralog OG
@@ -55,7 +56,7 @@ def assign_homology(
     result.replace(to_replace="", value=None, inplace=True)
     return result
 
-# %% ../nbs/01_genes.ipynb 21
+# %% ../nbs/01_genes.ipynb 22
 def compare_orthology(query, target):
     result = []
     for x in query:
@@ -65,7 +66,7 @@ def compare_orthology(query, target):
     result.index = query.index
     return result
 
-# %% ../nbs/01_genes.ipynb 22
+# %% ../nbs/01_genes.ipynb 23
 def calculate_orthology_score(
     query: pd.DataFrame,  # the dataframe with the gene_id, paralog OG and ortholog OG for the query species
     target: pd.DataFrame,

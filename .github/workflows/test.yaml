@@ -7,8 +7,7 @@ jobs:
     steps:
       - name: Download data
         run: |
-          cd ${GITHUB_WORKSPACE}
-          cd ..
-          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
-          tar xvzf example_data.tar.gz
+          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o ${GITHUB_WORKSPACE}/example_data.tar.gz
+          cd ${GITHUB_WORKSPACE} && echo "Extracting data..."
+          tar xzf example_data.tar.gz
       - uses: fastai/workflows/nbdev-ci@master
