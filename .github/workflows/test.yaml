@@ -2,7 +2,7 @@ name: CI
 on:  [workflow_dispatch, pull_request, push]
 
 env:
-  EXAMPLE_DATA_PATH: $HOME/example_data
+  EXAMPLE_DATA_PATH: /home/runner/example_data/
 
 jobs:
   test:
@@ -10,13 +10,7 @@ jobs:
     steps:
       - name: Download data
         run: |
-          mkdir -p $HOME/example_data
           cd $HOME
-          echo $(ls -la)
-          echo $(pwd)
-          echo $EXAMPLE_DATA_PATH
-          # curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
-          # tar xzf example_data.tar.gz
-          echo $(ls $EXAMPLE_DATA_PATH -la)
-          echo $(ls)
+          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
+          tar xzf example_data.tar.gz
       - uses: fastai/workflows/nbdev-ci@master
