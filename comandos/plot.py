@@ -466,7 +466,7 @@ def paired_dotplot(
     target_perc_expr = target_perc_expr.iloc[:, target_order]
 
     if len(target_genes) > 0 and len(query_genes) > 0:
-        du._plot_dotplot(
+        du.plot_dotplot(
             query_avg_expr,
             target_avg_expr,
             query_perc_expr,
