@@ -11,6 +11,6 @@ jobs:
       - name: Download data
         run: |
           cd $HOME
-          curl https://zenodo.org/record/8129708/files/example_data.tar.gz -o example_data.tar.gz
+          curl https://zenodo.org/record/8143110/files/example_data.tar.gz -o example_data.tar.gz
           tar xzf example_data.tar.gz
       - uses: fastai/workflows/nbdev-ci@master
