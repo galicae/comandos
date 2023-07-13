@@ -24,7 +24,7 @@ from plotly.subplots import make_subplots
 from samap.mapping import SAMAP
 
 from . import dotplot_util as du
-from . import util
+from . import genes, util
 
 # %% ../nbs/02_plot.ipynb 6
 def highlighted_dimplot(

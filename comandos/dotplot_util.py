@@ -6,7 +6,7 @@ __all__ = ['godsnot_102', 'map_array_to_color', 'map_to_colormap', 'unique_genes
            'plot_dot_legend', 'plot_colorbar_legend', 'make_dotplot', 'add_connections', 'plot_dotplot',
            'add_homology_context']
 
-# %% ../nbs/03_dotplot_util.ipynb 4
+# %% ../nbs/03_dotplot_util.ipynb 5
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 import matplotlib as mpl
@@ -263,7 +263,7 @@ godsnot_102 = np.array(
     ]
 )
 
-# %% ../nbs/03_dotplot_util.ipynb 9
+# %% ../nbs/03_dotplot_util.ipynb 8
 def prepare_dotplot(
     avg_expr: pd.DataFrame,
     perc_expr: pd.DataFrame,
