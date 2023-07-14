@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Collection of plotting functions.">
+
+<title>comandos - plot</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="comandos - plot">
+<meta property="og:description" content="Collection of plotting functions.">
+<meta property="og:image" content="https://galicae.github.io/comandos/02_plot_files/figure-html/cell-4-output-2.png">
+<meta property="og:site-name" content="comandos">
+<meta property="og:image:height" content="521">
+<meta property="og:image:width" content="512">
+<meta name="twitter:title" content="comandos - plot">
+<meta name="twitter:description" content="Collection of plotting functions.">
+<meta name="twitter:image" content="https://galicae.github.io/comandos/02_plot_files/figure-html/cell-4-output-2.png">
+<meta name="twitter:image-height" content="521">
+<meta name="twitter:image-width" content="512">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">comandos</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./plot.html">plot</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ComAnDOS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./util.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">util</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">genes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">plot</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dotplot_util.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dotplot_util</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#see-the-big-picture" id="toc-see-the-big-picture" class="nav-link active" data-scroll-target="#see-the-big-picture">See the big picture</a>
+  <ul class="collapse">
+  <li><a href="#highlighted_dimplot" id="toc-highlighted_dimplot" class="nav-link" data-scroll-target="#highlighted_dimplot">highlighted_dimplot</a></li>
+  <li><a href="#highlighted_heatmap" id="toc-highlighted_heatmap" class="nav-link" data-scroll-target="#highlighted_heatmap">highlighted_heatmap</a></li>
+  <li><a href="#annotated_heatmap" id="toc-annotated_heatmap" class="nav-link" data-scroll-target="#annotated_heatmap">annotated_heatmap</a></li>
+  </ul></li>
+  <li><a href="#pairwise-comparisons" id="toc-pairwise-comparisons" class="nav-link" data-scroll-target="#pairwise-comparisons">Pairwise comparisons</a>
+  <ul class="collapse">
+  <li><a href="#paired_dotplot" id="toc-paired_dotplot" class="nav-link" data-scroll-target="#paired_dotplot">paired_dotplot</a></li>
+  </ul></li>
+  <li><a href="#real-life-applications" id="toc-real-life-applications" class="nav-link" data-scroll-target="#real-life-applications">Real-life applications</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/galicae/comandos/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">plot</h1>
+</div>
+
+<div>
+  <div class="description">
+    Collection of plotting functions.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="see-the-big-picture" class="level2">
+<h2 class="anchored" data-anchor-id="see-the-big-picture">See the big picture</h2>
+<p>These functions are intended to help you find your way around the data. I use them a lot when generating reports for collaborators, to set the stage for the more detailed analyses. In particular, I want to highlight which clusters we are comparing and where they are in the context of both species as well as the comparison.</p>
+<hr>
+<p><a href="https://github.com/galicae/comandos/blob/main/comandos/plot.py#L30" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="highlighted_dimplot" class="level3">
+<h3 class="anchored" data-anchor-id="highlighted_dimplot">highlighted_dimplot</h3>
+<blockquote class="blockquote">
+<pre><code> highlighted_dimplot (adata:anndata._core.anndata.AnnData, species:str,
+                      clustering:str, cluster:str, embedding:str='X_umap',
+                      highlight:str='red', figsize:tuple=(10, 10),
+                      save:Optional[str]=None)</code></pre>
+</blockquote>
+<p>Plot a low-dimensional embedding and highlight a chosen cluster with a superimposed circle.</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>adata</td>
+<td>AnnData</td>
+<td></td>
+<td>AnnData object to plot.</td>
+</tr>
+<tr class="even">
+<td>species</td>
+<td>str</td>
+<td></td>
+<td>Species name. Will be used in the title, and removed from the cluster names if present.</td>
+</tr>
+<tr class="odd">
+<td>clustering</td>
+<td>str</td>
+<td></td>
+<td>Clustering to plot. Must be present in <code>adata.obs</code>.</td>
+</tr>
+<tr class="even">
+<td>cluster</td>
+<td>str</td>
+<td></td>
+<td>Cluster to highlight.</td>
+</tr>
+<tr class="odd">
+<td>embedding</td>
+<td>str</td>
+<td>X_umap</td>
+<td>Embedding to plot (default: “X_umap”).</td>
+</tr>
+<tr class="even">
+<td>highlight</td>
+<td>str</td>
+<td>red</td>
+<td>Color of the circle (default: “red”).</td>
+</tr>
+<tr class="odd">
+<td>figsize</td>
+<td>tuple</td>
+<td>(10, 10)</td>
+<td>Figure size (default: (10, 10)).</td>
+</tr>
+<tr class="even">
+<td>save</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td>Path to save the figure (default: None).</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>planarian <span class="op">=</span> sc.read_h5ad(os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"planarian.h5ad"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>planarian.var.index <span class="op">=</span> <span class="st">"pl_"</span> <span class="op">+</span> planarian.var.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>highlighted_dimplot(planarian, <span class="st">"Smed"</span>, <span class="st">"tissue"</span>, <span class="st">"Pharynx"</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Of course, if a cluster is too spread out, the plot will not work as well, but it will still be useful to see the general location of the cluster.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>highlighted_dimplot(planarian, <span class="st">"Smed"</span>, <span class="st">"tissue"</span>, <span class="st">"Neural"</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Another case that might not work so well is if the shape of a cluster is not Gaussian. Still, it should help us spot the cluster, especially if the color contrasts enough.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>highlighted_dimplot(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    planarian, <span class="st">"Smed"</span>, <span class="st">"tissue"</span>, <span class="st">"Muscle"</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), highlight<span class="op">=</span><span class="st">"lightgreen"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/galicae/comandos/blob/main/comandos/plot.py#L92" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="highlighted_heatmap" class="level3">
+<h3 class="anchored" data-anchor-id="highlighted_heatmap">highlighted_heatmap</h3>
+<blockquote class="blockquote">
+<pre><code> highlighted_heatmap (to_plot, celltype_from, celltype_to, figheight=20,
+                      save=None)</code></pre>
+</blockquote>
+<p>Plot a heatmap of pairwise similarities between cell types, with a red box highlighting the query cell type.</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>to_plot</td>
+<td>pd.DataFrame</td>
+<td></td>
+<td>A dataframe of pairwise similarities between cell types.</td>
+</tr>
+<tr class="even">
+<td>celltype_from</td>
+<td>str</td>
+<td></td>
+<td>Cell type of the query species to highlight. Must be in <code>to_plot.columns</code>.</td>
+</tr>
+<tr class="odd">
+<td>celltype_to</td>
+<td>str</td>
+<td></td>
+<td>Cell type of the target species to highlight. Must be in <code>to_plot.index</code>.</td>
+</tr>
+<tr class="even">
+<td>figheight</td>
+<td>int</td>
+<td>20</td>
+<td>Height of the resulting plot in inches. Width will be calculated automatically (default:<br>20).</td>
+</tr>
+<tr class="odd">
+<td>save</td>
+<td>NoneType</td>
+<td>None</td>
+<td>Path to result figure; if None, the figure will be plotted but not saved (default: None).</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>hysc <span class="op">=</span> pd.read_csv(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"hysc_similarity_table.csv"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    index_col<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>highlighted_heatmap(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    hysc, celltype_from<span class="op">=</span><span class="st">"hy_i_SC"</span>, celltype_to<span class="op">=</span><span class="st">"sc_Neoblast: 0"</span>, figheight<span class="op">=</span><span class="dv">12</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/galicae/comandos/blob/main/comandos/plot.py#L273" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="annotated_heatmap" class="level3">
+<h3 class="anchored" data-anchor-id="annotated_heatmap">annotated_heatmap</h3>
+<blockquote class="blockquote">
+<pre><code> annotated_heatmap (sm:samap.mapping.SAMAP,
+                    similarity:pandas.core.frame.DataFrame,
+                    query_species:str, target_species:str,
+                    query_clustering:str, target_clustering:str,
+                    query_coarse:Optional[str]=None,
+                    target_coarse:Optional[str]=None,
+                    interactive:bool=False,
+                    figsize:Optional[Tuple[float,float]]=None,
+                    save:Optional[str]=None, **kwargs:Any)</code></pre>
+</blockquote>
+<p>Plot the similarity matrix as an annotated heatmap.</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sm</td>
+<td>SAMAP</td>
+<td></td>
+<td>SAMAP object</td>
+</tr>
+<tr class="even">
+<td>similarity</td>
+<td>DataFrame</td>
+<td></td>
+<td>Similarity matrix. Contains query species clusters as columns and target species clusters as rows.</td>
+</tr>
+<tr class="odd">
+<td>query_species</td>
+<td>str</td>
+<td></td>
+<td>Query species ID. Will be used in the title. Should prepend the similarity matrix column names.</td>
+</tr>
+<tr class="even">
+<td>target_species</td>
+<td>str</td>
+<td></td>
+<td>Target species ID. Will be used in the title. Should prepend the similarity matrix row names.</td>
+</tr>
+<tr class="odd">
+<td>query_clustering</td>
+<td>str</td>
+<td></td>
+<td>Query species clustering. Must be present in <code>sm.sams[query_species].adata.obs</code>.</td>
+</tr>
+<tr class="even">
+<td>target_clustering</td>
+<td>str</td>
+<td></td>
+<td>Target species clustering. Must be present in <code>sm.sams[target_species].adata.obs</code>.</td>
+</tr>
+<tr class="odd">
+<td>query_coarse</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>target_coarse</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td>Query species coarse clustering. Must be present in <code>sm.sams[query_species].adata.obs</code>. If None, will be set to <code>query_clustering</code> (default: None).</td>
+</tr>
+<tr class="odd">
+<td>interactive</td>
+<td>bool</td>
+<td>False</td>
+<td>If True, will return a plotly figure. Otherwise, will return a matplotlib figure (default: False).</td>
+</tr>
+<tr class="even">
+<td>figsize</td>
+<td>typing.Optional[typing.Tuple[float, float]]</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>save</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td>Figure size. If None, will be guessed from the size of the similarity matrix (default: None).</td>
+</tr>
+<tr class="even">
+<td>kwargs</td>
+<td>typing.Any</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>typing.Optional[plotly.graph_objs._figure.Figure]</strong></td>
+<td></td>
+<td><strong>If not None, will save the figure to the specified path (default: None).<br>Additional arguments to pass to <code>seaborn.heatmap</code> (matplotlib) or <code>plotly.graph_objects.Figure</code> (plotly). Among them: dpi (int), which is only used if <code>interactive=True</code> to set the figure size in pixels.</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Read the requisite files: the SAMap object and the pairwise cluster similarity matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"hypl.pkl"</span>, <span class="st">"rb"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> pickle.load(<span class="bu">file</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>hypl <span class="op">=</span> pd.read_csv(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"hypl_similarity_table.csv"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    index_col<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>First improve the coarse level assignments for the data we have here:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sm.sams[<span class="st">"hy"</span>].adata.obs[<span class="st">"coarse"</span>] <span class="op">=</span> (</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    sm.sams[<span class="st">"hy"</span>].adata.obs[<span class="st">"Cluster"</span>].<span class="bu">str</span>.split(<span class="st">"_"</span>).<span class="bu">str</span>[<span class="dv">0</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>sm.sams[<span class="st">"pl"</span>].adata.obs[<span class="st">"coarse"</span>] <span class="op">=</span> (</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    sm.sams[<span class="st">"pl"</span>].adata.obs[<span class="st">"tissue_smedwi"</span>].<span class="bu">str</span>.split(<span class="st">"_"</span>).<span class="bu">str</span>[<span class="dv">0</span>]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>annotated_heatmap(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    sm,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    hypl,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hy"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pl"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    query_coarse<span class="op">=</span><span class="st">"coarse"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    target_coarse<span class="op">=</span><span class="st">"coarse"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    interactive<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    save<span class="op">=</span><span class="st">"hypl.pdf"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(
+/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This sort of plot does a much better job of showing the relationships between clusters than the Sankey diagram. Clear patches of similarity emerge that would be otherwise invisible. This is a result of the hierarchical relationship between cell types (see Arendt/Musser/Wagner in <a href="https://www.nature.com/articles/nrg.2016.127">2016</a> and <a href="https://www.sciencedirect.com/science/article/pii/S0959438819300194">2019</a>). By combining maps like this with the per-species cell type family trees we can start to get a better idea of how cell types may have evolved over time.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> os.path.exists(<span class="st">"hypl.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can make the same plot in interactive form. Unfortunately, the interactive version is a bit more finicky with color usage, so for now I’ll let <code>plotly</code> choose the colors, but any <code>plotly</code> wizards out there are welcome to improve this. Right now hovering over a point will show the cluster names and SAMap score; hovering over the colored bars at the margins should show the coarse cluster.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plotly_overview <span class="op">=</span> annotated_heatmap(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    sm,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    hypl,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hy"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pl"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    query_coarse<span class="op">=</span><span class="st">"coarse"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    target_coarse<span class="op">=</span><span class="st">"coarse"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    interactive<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    dpi<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    save<span class="op">=</span><span class="st">"hypl"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(
+/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_tools/scatterplots.py:392: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  cax = scatter(</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> os.path.exists(<span class="st">"hypl.json"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> os.path.exists(<span class="st">"hypl.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can visualize the plot in a notebook with:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not run</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plotly_overview.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="pairwise-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="pairwise-comparisons">Pairwise comparisons</h2>
+<p>When comparing two clusters, it is most informative to have a look at the genes they are expressing. If the clusters are in the same species we can use a simple dotplot that combines the two clusters’ marker genes; things are not so simple when comparing between species. By plotting two dotplots side by side, and connecting homologous genes across the dotplots, we can get a better sense of how the clusters are connected.</p>
+<p>A lot of the heavy lifting for this idea was already done by the <code>scanpy</code> team, who write excellent, well-documented code. I’ve adapted their code to produce the paired dotplots, fiddled with it to make sure dot size and color are consistent across plots, and added the homology lines. The latter part is rather tricky, and I would be thankful to anyone who can improve it; currently it involves a lot of heuristics to translate the coordinates from one side of the plot to the other.</p>
+<hr>
+<p><a href="https://github.com/galicae/comandos/blob/main/comandos/plot.py#L347" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="paired_dotplot" class="level3">
+<h3 class="anchored" data-anchor-id="paired_dotplot">paired_dotplot</h3>
+<blockquote class="blockquote">
+<pre><code> paired_dotplot (query:anndata._core.anndata.AnnData,
+                 target:anndata._core.anndata.AnnData, connections:&lt;built-
+                 infunctionarray&gt;, query_clustering:str,
+                 target_clustering:str, query_species:str,
+                 target_species:str, query_cluster:Optional[str]=None,
+                 target_cluster:Optional[str]=None, pad:bool=True,
+                 x_offset:float=1, y_offset:float=0, grid_offset:float=30,
+                 query_gene_names:Optional[str]=None,
+                 target_gene_names:Optional[str]=None,
+                 output:str='./paired_dotplot.png', center:bool=True,
+                 title:Optional[str]=None, title_font_size:float=16)</code></pre>
+</blockquote>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>query</td>
+<td>AnnData</td>
+<td></td>
+<td>query species AnnData object</td>
+</tr>
+<tr class="even">
+<td>target</td>
+<td>AnnData</td>
+<td></td>
+<td>target species AnnData object</td>
+</tr>
+<tr class="odd">
+<td>connections</td>
+<td>array</td>
+<td></td>
+<td>array of connected genes. Each row has at least two columns containing the query species gene and corresponding target species gene, and optionally their connection strength. Genes are allowed to be repeated on both sides.</td>
+</tr>
+<tr class="even">
+<td>query_clustering</td>
+<td>str</td>
+<td></td>
+<td><code>.obs</code> column in the query AnnData object containing the query species clustering.</td>
+</tr>
+<tr class="odd">
+<td>target_clustering</td>
+<td>str</td>
+<td></td>
+<td><code>.obs</code> column in the target AnnData object containing the target species clustering.</td>
+</tr>
+<tr class="even">
+<td>query_species</td>
+<td>str</td>
+<td></td>
+<td>query species name. Will only be used in the title, so does not have to conform with the query species ID in the similarity matrix/SAMap object.</td>
+</tr>
+<tr class="odd">
+<td>target_species</td>
+<td>str</td>
+<td></td>
+<td>target species name. Will only be used in the title, so does not have to conform with the target species ID in the similarity matrix/SAMap object.</td>
+</tr>
+<tr class="even">
+<td>query_cluster</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>target_cluster</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td>the cell type/cluster of the query species that is being compared (default: None).</td>
+</tr>
+<tr class="even">
+<td>pad</td>
+<td>bool</td>
+<td>True</td>
+<td>whether to pad the gene names with spaces to make them all of a similar length (default: True).</td>
+</tr>
+<tr class="odd">
+<td>x_offset</td>
+<td>float</td>
+<td>1</td>
+<td>Number of inches to add to the horizontal size of the canvas (default: 1).</td>
+</tr>
+<tr class="even">
+<td>y_offset</td>
+<td>float</td>
+<td>0</td>
+<td>Number of inches to add to the vertical size of the canvas (default: 0).</td>
+</tr>
+<tr class="odd">
+<td>grid_offset</td>
+<td>float</td>
+<td>30</td>
+<td>Grid segments to add between the two dotplots. Might be useful if the gene names are not legible/lines overlap (default: 30).</td>
+</tr>
+<tr class="even">
+<td>query_gene_names</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>target_gene_names</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td><code>.var</code> column that holds unique gene names for the query species (default: None).</td>
+</tr>
+<tr class="even">
+<td>output</td>
+<td>str</td>
+<td>./paired_dotplot.png</td>
+<td>path to save the plot to (default: “./paired_dotplot.png”).</td>
+</tr>
+<tr class="odd">
+<td>center</td>
+<td>bool</td>
+<td>True</td>
+<td>whether to center the dotplot (default: True).</td>
+</tr>
+<tr class="even">
+<td>title</td>
+<td>typing.Optional[str]</td>
+<td>None</td>
+<td>overall title of the plot (default: None).</td>
+</tr>
+<tr class="odd">
+<td>title_font_size</td>
+<td>float</td>
+<td>16</td>
+<td>font size of the overall plot title (default: 16).</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Recall that <code>scanpy</code> dotplots need three inputs: the <code>AnnData</code> object, the names of genes to plot, and the name of the clustering. For paired dotplots we need this information for both sides of the plot.</p>
+<p>However, genes are input via the <code>connections</code> slot; an array where each row contains two genes and (optionally) the strength of their connection. The function will reorder the genes in order to plot the densely connected gene groups first, and will also color-code each group to make reading the plot easier.</p>
+<p>Additionally, since plots like this may become busy very fast, the function also accepts the names of the two clusters to be compared; it will then highlight the cluster names in the plot.</p>
+<p>We are going to prepare the inputs first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hydra <span class="op">=</span> sm.sams[<span class="st">"hy"</span>].adata  <span class="co"># the query dataset</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>planarian <span class="op">=</span> sm.sams[<span class="st">"pl"</span>].adata  <span class="co"># the target dataset</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>planarian.raw.var.index <span class="op">=</span> <span class="st">"pl_"</span> <span class="op">+</span> planarian.raw.var.index</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the .obs column that contains the cluster labels</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>query_clustering <span class="op">=</span> <span class="st">"Cluster"</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>target_clustering <span class="op">=</span> <span class="st">"cluster"</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># the species IDs</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>query_species <span class="op">=</span> <span class="st">"hy"</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>target_species <span class="op">=</span> <span class="st">"pl"</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># the cluster labels to highlight</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>cluster_from <span class="op">=</span> <span class="st">"ecEp_SC2"</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>cluster_to <span class="op">=</span> <span class="st">"Epidermal: 2"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>connections</code> option is provided in this form deliberately, in order to allow the user to decide which genes to connect and how. This may cost a little extra effort for the most common cases, but it means that the function is more flexible.</p>
+<p>The function currently supports three types of connections, corresponding to connection strength of <code>[0, 1, 2]</code>, accordingly. It’s up to the user to assign meaning to the levels. The linestyles that correspond to these are</p>
+<ul>
+<li><code>dotted</code> for 0 (<code>linestyle = (0, (1, 5))</code>)</li>
+<li><code>dashed</code> for 1 (<code>linestyle = (0, (5, 5))</code>)</li>
+<li><code>solid</code> for 2</li>
+</ul>
+<p>In the future I would like to let the user specify the linestyles, but for now this is what we have.</p>
+<details>
+<summary>
+Click here for some possible applications
+</summary>
+<ul>
+<li>when comparing a dataset to itself, we could connect a gene to all its paralogs and visualize patterns of paralog substitution in cell type complement of an organism.</li>
+</ul>
+</details>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>hydra_genes <span class="op">=</span> np.array(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"hy_t13309aep"</span>, <span class="st">"hy_t14973aep"</span>, <span class="st">"hy_t10876aep"</span>, <span class="st">"hy_t38670aep"</span>, <span class="st">"hy_t19278aep"</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>plan_genes <span class="op">=</span> np.array(</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pl_dd_Smed_v4_361_0_1"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pl_dd_Smed_v4_361_0_1"</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pl_dd_Smed_v4_1215_0_1"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pl_dd_Smed_v4_1131_0_1"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pl_dd_Smed_v4_1971_0_1"</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>orth_scores <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>])</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># connections without orthology scores</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>connections_plain <span class="op">=</span> np.array([hydra_genes, plan_genes]).T</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># connections with orthology scores</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>connections_orth <span class="op">=</span> np.array([hydra_genes, plan_genes, orth_scores], dtype<span class="op">=</span><span class="bu">object</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s have a look at what we feed into the function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(connections_plain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>hy_t13309aep</td>
+<td>pl_dd_Smed_v4_361_0_1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>hy_t14973aep</td>
+<td>pl_dd_Smed_v4_361_0_1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>hy_t10876aep</td>
+<td>pl_dd_Smed_v4_1215_0_1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>hy_t38670aep</td>
+<td>pl_dd_Smed_v4_1131_0_1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>hy_t19278aep</td>
+<td>pl_dd_Smed_v4_1971_0_1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_plain,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Since we didn’t supply any weights for the connections, the function uses a weight of 0, and plots all connections we provided as dotted lines. Let’s try again, this time with weights:</p>
+<div class="alert alert-block alert-warning">
+<details>
+<summary>
+<b>WARNING - Gene name padding:</b>
+</summary>
+<p>We used <code>pad=False</code> here because we used the gene IDs instead of gene symbols. Gene symbols tend to have the same length, and so <code>pad</code> doesn’t help here. In fact <code>pad=True</code> will throw an issue here, indicating possibly sloppy code. Unfortunately fixing this is not a priority.</p>
+</details>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(connections_orth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>hy_t13309aep</td>
+<td>pl_dd_Smed_v4_361_0_1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>hy_t14973aep</td>
+<td>pl_dd_Smed_v4_361_0_1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>hy_t10876aep</td>
+<td>pl_dd_Smed_v4_1215_0_1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>hy_t38670aep</td>
+<td>pl_dd_Smed_v4_1131_0_1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>hy_t19278aep</td>
+<td>pl_dd_Smed_v4_1971_0_1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_orth,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>With weighting we can add an additional layer of information to the plot, such as orthology.</p>
+<p>The next level would be to include the gene names, making this plot <em>actually</em> useful. For this to work reliably you need to have a column in the <code>.var</code> slot of your <code>AnnData</code> object that contains <em>unique</em> gene names. This is easily achieved by prepending the gene ID to the gene name/description.</p>
+<p>The following code block is how I usually do this with EggNOG-mapper annotations; feel free to use whatever works for you.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> pd.read_csv(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"eggnog/hydra.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>, engine<span class="op">=</span><span class="st">"python"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> query[[<span class="st">"Unnamed: 0"</span>, <span class="st">"5"</span>, <span class="st">"eggNOG_OGs"</span>, <span class="st">"21"</span>]].copy()</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>query.columns <span class="op">=</span> [<span class="st">"gene_id"</span>, <span class="st">"gene_name"</span>, <span class="st">"eggNOG_OGs"</span>, <span class="st">"description"</span>]</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>query[<span class="st">"gene_id"</span>] <span class="op">=</span> <span class="st">"hy_"</span> <span class="op">+</span> query[<span class="st">"gene_id"</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>query.set_index(<span class="st">"gene_id"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>query[<span class="st">"name"</span>] <span class="op">=</span> (</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    query.index.astype(<span class="bu">str</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> <span class="st">" | "</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> query[<span class="st">"gene_name"</span>].fillna(<span class="st">""</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> <span class="st">" | "</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> query[<span class="st">"description"</span>].fillna(<span class="st">""</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>hydra.var[<span class="st">"name"</span>] <span class="op">=</span> hydra.var.index</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>hydra.var[<span class="st">"name"</span>].replace(query[<span class="st">"name"</span>].to_dict(), inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>hy_t33417aep <span class="op">=</span> <span class="st">"hy_t33417aep | EPT1 | diacylglycerol cholinephosphotransferase activity"</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> hydra.var.loc[<span class="st">"hy_t33417aep"</span>][<span class="st">"name"</span>] <span class="op">==</span> hy_t33417aep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>I have now created a column called <code>name</code> in the <code>.var</code> slot of the <code>AnnData</code> object. I can use this to plot the gene names instead of the gene IDs:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_orth,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The right side of the plot is left as an exercise to the reader :) Notice how the lines on the left side are not starting from the same spot. This is where the <code>util.procrustes</code> function tries to guess how to pad using space characters so that the plotted strings have approximately the same length and the lines don’t go over some longer gene names. It’s not perfect, but it’s better than nothing.</p>
+<p>From here on I will hide the lines of code that stay the same to make the notebook more readable. If you are trying to reproduce the plots, make sure you copy the code from the blocks above and just add the new lines.</p>
+<p>The other options of the function should be self-explanatory, but I’ll go over them anyway:</p>
+<ul>
+<li><code>x_offset</code> and <code>y_offset</code> control the canvas size beyond the size absolutely necessary for the plots to be rendered correctly. Increase <code>x_offset</code> to give the plots more x-axis space, and <code>y_offset</code> to give them more space on the vertical side. This is not an exact science, and you will find combinations that distort the plot to the point of making it unreadable.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,  <span class="co"># |hide_line</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,  <span class="co"># |hide_line</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_orth,  <span class="co"># |hide_line</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,  <span class="co"># |hide_line</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,  <span class="co"># |hide_line</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    x_offset<span class="op">=</span><span class="dv">21</span>,</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    y_offset<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The <code>grid_offset</code> parameter tries to control the space between the dotplots. Play with it if the lines connecting the genes are too short or too long. Try to stick to odd numbers, for some reason they work better. This gives you an additional lever for when increasing <code>x_offset</code> doesn’t work as intended.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,  <span class="co"># |hide_line</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,  <span class="co"># |hide_line</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_orth,  <span class="co"># |hide_line</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,  <span class="co"># |hide_line</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,  <span class="co"># |hide_line</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    grid_offset<span class="op">=</span><span class="dv">131</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    x_offset<span class="op">=</span><span class="dv">21</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,  <span class="co"># |hide_line</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,  <span class="co"># |hide_line</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_orth,  <span class="co"># |hide_line</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,  <span class="co"># |hide_line</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,  <span class="co"># |hide_line</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    grid_offset<span class="op">=</span><span class="dv">13</span>,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    x_offset<span class="op">=</span><span class="dv">21</span>,</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The parameters <code>title</code> and <code>title_font_size</code> do what you expect them to do.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,  <span class="co"># |hide_line</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,  <span class="co"># |hide_line</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections_orth,  <span class="co"># |hide_line</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span>cluster_from,  <span class="co"># |hide_line</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span>cluster_to,  <span class="co"># |hide_line</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,  <span class="co"># |hide_line</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    x_offset<span class="op">=</span><span class="dv">31</span>,</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    y_offset<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"If my title is long and in big font size I need to use the function</span><span class="ch">\n</span><span class="st">parameters to make the plot bigger and push the plots to the sides"</span>,</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    title_font_size<span class="op">=</span><span class="dv">40</span>,</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    grid_offset<span class="op">=</span><span class="dv">71</span>,</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Finally, <code>output</code> controls where the plot is saved, and <code>center=True</code> will try to arrange the dotplots so that their centers on the y-axis are aligned. You probably want <code>center=False</code> if you need to print a title.</p>
+</section>
+</section>
+<section id="real-life-applications" class="level2">
+<h2 class="anchored" data-anchor-id="real-life-applications">Real-life applications</h2>
+<p>When comparing cell types between species we are mostly interested in figuring out which cell types are homologous, and we want to find conserved gene expression patterns as evidence.</p>
+<p>One way to get started with this is to look at the top marker genes of a cluster in one species and their homologs in the other animal.</p>
+<p>For DEG detection I will use logistic regression, since I am interested in finding genes that are specifically expressed in my cluster of interest. I will take the <code>"enEp_foot"</code> cluster.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(hydra, <span class="st">"Cluster"</span>, method<span class="op">=</span><span class="st">"logreg"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sc.tl.rank_genes_groups(planarian, <span class="st">"cluster"</span>, method<span class="op">=</span><span class="st">"logreg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For the sake of illustration let’s have a look at the top 30 genes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>top30 <span class="op">=</span> hydra.uns[<span class="st">"rank_genes_groups"</span>][<span class="st">"names"</span>][<span class="st">"ecEp_SC3"</span>][:<span class="dv">30</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sc.pl.dotplot(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    hydra,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    hydra.var[<span class="st">"name"</span>].loc[top30],</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    gene_symbols<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    groupby<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"magma_r"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    swap_axes<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    use_raw<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_dotplot.py:749: UserWarning:
+
+No data for colormapping provided via 'c'. Parameters 'cmap', 'norm' will be ignored
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This might be too much information on the plot - many of the true marker genes are only expresed in the endodermal clusters anyway. I would like to collapse the other coarse clusters to make it more legible. I have a function for that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>util.collapse_unrelated_clusters(hydra, <span class="st">"ecEp_SC3"</span>, <span class="st">"Cluster"</span>, <span class="st">"coarse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sc.pl.dotplot(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    hydra,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    hydra.var[<span class="st">"name"</span>].loc[top30],</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    gene_symbols<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    groupby<span class="op">=</span><span class="st">"Cluster_collapsed"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"magma_r"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    swap_axes<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    use_raw<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/npapadop/mambaforge/envs/comandos/lib/python3.9/site-packages/scanpy/plotting/_dotplot.py:749: UserWarning:
+
+No data for colormapping provided via 'c'. Parameters 'cmap', 'norm' will be ignored
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This is much more legible. Use this at your own risk though, as it may hide important information.</p>
+<p>Now, let’s find the orthology information for these genes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>orthology <span class="op">=</span> pd.read_csv(</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"hypl_orthology.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>, index_col<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>keep <span class="op">=</span> np.intersect1d(</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    top30, orthology.index</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># for how many genes do we have orthology information?</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>available <span class="op">=</span> orthology.loc[keep]  <span class="co"># subset to only include those</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>available_long <span class="op">=</span> available.reset_index().melt(</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gene_id"</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># pivot the table to long format</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>available_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">gene_id</th>
+<th data-quarto-table-cell-role="th">variable</th>
+<th data-quarto-table-cell-role="th">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>hy_t12447aep</td>
+<td>pl_dd_Smed_v4_10001_0_1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>hy_t12561aep</td>
+<td>pl_dd_Smed_v4_10001_0_1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>hy_t12614aep</td>
+<td>pl_dd_Smed_v4_10001_0_1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>hy_t12863aep</td>
+<td>pl_dd_Smed_v4_10001_0_1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>hy_t14554aep</td>
+<td>pl_dd_Smed_v4_10001_0_1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">202635</td>
+<td>hy_t25822aep</td>
+<td>pl_dd_Smed_v4_99_0_1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">202636</td>
+<td>hy_t27670aep</td>
+<td>pl_dd_Smed_v4_99_0_1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">202637</td>
+<td>hy_t3105aep</td>
+<td>pl_dd_Smed_v4_99_0_1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">202638</td>
+<td>hy_t3139aep</td>
+<td>pl_dd_Smed_v4_99_0_1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">202639</td>
+<td>hy_t3141aep</td>
+<td>pl_dd_Smed_v4_99_0_1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>202640 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>Now we can only keep the pairs with a score greater than zero:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>connections <span class="op">=</span> available_long[available_long[<span class="st">"value"</span>] <span class="op">&gt;</span> <span class="dv">0</span>].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will now also name the planarian genes so that the plot makes more sense:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> pd.read_csv(</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"EXAMPLE_DATA_PATH"</span>] <span class="op">+</span> <span class="st">"eggnog/planarian.tsv"</span>, sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>, engine<span class="op">=</span><span class="st">"python"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> target[[<span class="st">"Unnamed: 0"</span>, <span class="st">"5"</span>, <span class="st">"eggNOG_OGs"</span>, <span class="st">"21"</span>]].copy()</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>target.columns <span class="op">=</span> [<span class="st">"gene_id"</span>, <span class="st">"gene_name"</span>, <span class="st">"eggNOG_OGs"</span>, <span class="st">"description"</span>]</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>target[<span class="st">"gene_id"</span>] <span class="op">=</span> <span class="st">"pl_"</span> <span class="op">+</span> target[<span class="st">"gene_id"</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>target.set_index(<span class="st">"gene_id"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>target[<span class="st">"name"</span>] <span class="op">=</span> (</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    target.index.astype(<span class="bu">str</span>)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> <span class="st">" | "</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> target[<span class="st">"gene_name"</span>].fillna(<span class="st">""</span>)</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> <span class="st">" | "</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> target[<span class="st">"description"</span>].fillna(<span class="st">""</span>)</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>planarian.var[<span class="st">"name"</span>] <span class="op">=</span> planarian.var.index</span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>planarian.var[<span class="st">"name"</span>].replace(target[<span class="st">"name"</span>].to_dict(), inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster_collapsed"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span><span class="st">"ecEp_SC3"</span>,</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span><span class="st">"Epidermal: 2"</span>,</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>    target_gene_names<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>    x_offset<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This approach will be sensitive but not very specific, as we will be plotting entire gene families on the target side. A more specific approach would be to look for genes that are markers on both sides and also homologous:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>hydra_top100 <span class="op">=</span> hydra.uns[<span class="st">"rank_genes_groups"</span>][<span class="st">"names"</span>][<span class="st">"ecEp_SC3"</span>][:<span class="dv">100</span>]</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>planarian_top100 <span class="op">=</span> planarian.uns[<span class="st">"rank_genes_groups"</span>][<span class="st">"names"</span>][<span class="st">"Epidermal: 2"</span>][:<span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>connections <span class="op">=</span> genes.get_orthologs_overlap(</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    hydra_top100, planarian_top100, hydra, planarian, orthology</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>connections</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array([['hy_t10711aep', 'pl_dd_Smed_v4_299_0_1', '1'],
+       ['hy_t10711aep', 'pl_dd_Smed_v4_414_0_1', '1'],
+       ['hy_t22760aep', 'pl_dd_Smed_v4_433_0_1', '1'],
+       ['hy_t22760aep', 'pl_dd_Smed_v4_7131_0_1', '1'],
+       ['hy_t22760aep', 'pl_dd_Smed_v4_762_0_1', '1']], dtype='&lt;U22')</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>paired_dotplot(</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>hydra,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span>planarian,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections,</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    query_clustering<span class="op">=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    target_clustering<span class="op">=</span><span class="st">"cluster"</span>,</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>    query_species<span class="op">=</span><span class="st">"hy"</span>,</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    target_species<span class="op">=</span><span class="st">"pl"</span>,</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>    query_cluster<span class="op">=</span><span class="st">"ecEp_SC3"</span>,</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>    target_cluster<span class="op">=</span><span class="st">"Epidermal: 2"</span>,</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>    query_gene_names<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>    target_gene_names<span class="op">=</span><span class="st">"name"</span>,</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>    x_offset<span class="op">=-</span><span class="dv">5</span>,</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="02_plot_files/figure-html/cell-43-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>I clearly chose the wrong example here, but I hope you can see the idea behind the method, and how that could be useful when analysing your own data. Hopefully by comparing two species that are somewhat closer related than <em>Hydra</em> and <em>Schmidtea</em>.</p>
+<p>Or, since the methods I describe here are so flexible, you could use them to manually compile lists of marker genes and visualize those, to much greater effect than this half-baked attempt at finding needles in a haystack. You probably know your favorite species much better than I know <em>Hydra</em> and <em>Schmidtea</em>, after all!</p>
+<p>Or, and hear me out here, cnidarians might have a fundamentally different way of building their cell types compared to other metazoans, and so SAMap can’t find bonafide homologs. If we do all the pairwise comparisons and can’t find compelling evidence for homology, we can start to think about alternatives.</p>
+<div class="alert alert-block alert-danger">
+<details>
+<summary>
+DISCLAIMER
+</summary>
+<p>Yes, I know that cnidarians and the rest of the metazoans had a common origin and that there is compelling evidence that many of their cell types are probably, in fact, homologous. I also know your in-situ data probably shows stuff that slightly disagrees with the single-cell data. I am just using hyperbole to make a point. Please don’t sue me.</p>
+</details>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
