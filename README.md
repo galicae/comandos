@@ -12,10 +12,10 @@ A draft is under preparation at
 workflow](https://github.com/galicae/comandos/actions/workflows/test.yaml/badge.svg)
 [![Code style:
 black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8143110.svg)](https://doi.org/10.5281/zenodo.8143110)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8146406.svg)](https://doi.org/10.5281/zenodo.8146406)
 
 <p align="center">
-<img src="../.github/tardi_head.png" height="256" />
+<img src="https://raw.githubusercontent.com/galicae/comandos/main/.github/tardi_head.png" height="256" />
 </p>
 
 As a long-time user of SAMap and a connoisseur of cross-species
@@ -106,9 +106,10 @@ For questions or requests please open an issue on
 communicating updates, if any, on
 [Twitter](https://twitter.com/galicae).
 
-## Install
+Example data is available on
+[Zenodo](https://zenodo.org/record/8143110).
 
-### GitHub
+## Install
 
 It is good practice to set up a virtual environment for your Python
 projects. I recommend `conda`, or `mamba` if you want faster package
@@ -118,6 +119,8 @@ installation.
 conda create -n comandos python=3.9
 conda activate comandos
 ```
+
+### GitHub
 
 First install dependencies:
 
@@ -135,11 +138,14 @@ cd comandos
 pip install -e .
 ```
 
-<!-- ### PyPi
-&#10;```bash
+### PyPi
+
+``` bash
 pip install comandos
 ```
-&#10;### Conda
+
+<!--
+### Conda
 &#10;```bash
 conda install -c galicae comandos
 ``` -->
