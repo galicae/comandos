@@ -47,10 +47,14 @@ def assign_homology(
     species_OGs = species_OGs.join(taxonomy)
 
     orthologs = pd.DataFrame(
-        species_OGs.groupby("gene_id")["ortholog"].apply(np.unique).str[0]
+        species_OGs.groupby("gene_id", observed=False)["ortholog"]
+        .apply(np.unique)
+        .str[0]
     )
     paralogs = pd.DataFrame(
-        species_OGs.groupby("gene_id")["paralog"].apply(np.unique).str[0]
+        species_OGs.groupby("gene_id", observed=False)["paralog"]
+        .apply(np.unique)
+        .str[0]
     )
 
     result = orthologs.join(paralogs)

@@ -55,7 +55,7 @@ def grouped_obs_mean(
     else:
         getX = lambda x: x.X
 
-    grouped = adata.obs.groupby(group_key)
+    grouped = adata.obs.groupby(group_key, observed=False)
     out = pd.DataFrame(
         np.zeros((adata.shape[1], len(grouped)), dtype=np.float64),
         columns=list(grouped.groups.keys()),
@@ -91,7 +91,7 @@ def grouped_obs_present(adata, group_key, layer: Union[str, None] = None):
     else:
         getX = lambda x: x.X
 
-    grouped = adata.obs.groupby(group_key)
+    grouped = adata.obs.groupby(group_key, observed=False)
     out = pd.DataFrame(
         np.zeros((adata.shape[1], len(grouped)), dtype=np.float64),
         columns=list(grouped.groups.keys()),
