@@ -372,6 +372,7 @@ def paired_dotplot(
     center: bool = True,  # whether to center the dotplot (default: True).
     title: Union[str, None] = None,  # overall title of the plot (default: None).
     title_font_size: float = 16,  # font size of the overall plot title (default: 16).
+    scale: bool = False,  # whether to scale the expression values to be between 0 and 1 for each gene (default: False).
 ) -> None:
     # make a local copy, since connections is mutable
     # and we might change it inadvertently
@@ -391,6 +392,10 @@ def paired_dotplot(
         query_gene_names=query_gene_names,
         target_gene_names=target_gene_names,
     )
+    # scale the expression values to be between 0 and 1 for each gene
+    if scale:
+        query_avg_expr = util.rescale(query_avg_expr)
+        target_avg_expr = util.rescale(target_avg_expr)
     # get expression percentage for each dot
     query_perc_expr, target_perc_expr = du.get_dot_size(
         query,

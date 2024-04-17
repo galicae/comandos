@@ -26,6 +26,8 @@ except ImportError:
     # matplotlib<3.2
     from matplotlib.colors import DivergingNorm as DivNorm
 
+import anndata as ad
+
 from . import util
 
 # %% ../nbs/03_dotplot_util.ipynb 6
@@ -541,8 +543,8 @@ def get_dot_size(
 
 
 def get_dot_color(
-    query: pd.DataFrame,
-    target: pd.DataFrame,
+    query: ad.AnnData,
+    target: ad.AnnData,
     query_clustering: str,
     target_clustering: str,
     query_genes: Optional[np.ndarray] = None,
@@ -552,12 +554,15 @@ def get_dot_color(
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
     Calculate average expression in each cluster and translate that to dot color for the dotplot.
+    Note that this function does not know what you did with the matrix before; if you have
+    log-transformed the data it will calculate an average of logs, not the log of the
+    exp-transformed average.
 
     Parameters
     ----------
-    query : pd.DataFrame
+    query : ad.AnnData
         The query dataset.
-    target : pd.DataFrame
+    target : ad.AnnData
         The target dataset.
     query_clustering : str
         The .obs column name to use for the query dataset.
