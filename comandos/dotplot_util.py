@@ -551,6 +551,7 @@ def get_dot_color(
     target_genes: Optional[np.ndarray] = None,
     query_gene_names: Optional[np.ndarray] = None,
     target_gene_names: Optional[np.ndarray] = None,
+    layer: Union[str, None] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
     Calculate average expression in each cluster and translate that to dot color for the dotplot.
@@ -576,14 +577,18 @@ def get_dot_color(
         Array of query gene names (default: None).
     target_gene_names : np.ndarray, optional
         Array of target gene names (default: None).
+    layer : Union[str, None], optional
+        The layer to use for the average expression calculation. If not specified, it will use the
+        `.X` slot of the `AnnData` objects. It is vital to set this correctly to avoid calculating
+        average expression on log1p-transformed data (default: None).
 
     Returns
     -------
     Tuple[pd.DataFrame, pd.DataFrame]
         A tuple containing the dot color values for query and target datasets, respectively.
     """
-    query_avg_expr = util.grouped_obs_mean(query, query_clustering)
-    target_avg_expr = util.grouped_obs_mean(target, target_clustering)
+    query_avg_expr = util.grouped_obs_mean(query, query_clustering, layer=layer)
+    target_avg_expr = util.grouped_obs_mean(target, target_clustering, layer=layer)
     # subset to only the genes we have
     if query_genes is not None and target_genes is not None:
         query_avg_expr = query_avg_expr.loc[query_genes].copy().T
@@ -660,7 +665,7 @@ def _get_mappable(
         (query_avg_expr.values.flatten(), target_avg_expr.values.flatten())
     )
     max_expr = np.max(all_expr)
-    norm = _check_colornorm(0, max_expr)
+    norm = _check_colornorm(vmin=0, vmax=max_expr)
     return ScalarMappable(norm, cmap=cmap)
 
 
@@ -703,6 +708,7 @@ def make_dotplot(
     clust_color: List[str],
     gene_color: List[str],
     side: str = "left",
+    cmap: Colormap = "magma_r",
 ) -> None:
     """
     Make a dotplot on the given Axes object based on the average and percentage expression values.
@@ -729,7 +735,7 @@ def make_dotplot(
         The side to place the y-axis labels, either "left" or "right" (default: "left").
     """
     N, G = avg.shape
-    df_avg, df_perc, color = prepare_dotplot(avg, perc)
+    df_avg, df_perc, color = prepare_dotplot(avg, perc, cmap=cmap)
     ax.scatter(
         df_avg["row"],
         df_avg["column"],
@@ -847,6 +853,7 @@ def plot_dotplot(
     title: Union[None, str] = None,
     title_font_size: int = 16,
     center: bool = True,
+    cmap: Colormap = "magma_r",
 ) -> None:
     """
     Plot the paired dotplot based on the given data.
@@ -955,6 +962,7 @@ def plot_dotplot(
         query_cluster_colors,
         query_gene_colors,
         side="left",
+        cmap=cmap,
     )
 
     make_dotplot(
@@ -967,6 +975,7 @@ def plot_dotplot(
         target_cluster_colors,
         target_gene_colors,
         side="right",
+        cmap=cmap,
     )
 
     # saving the figure: don't forget the dpi option!
@@ -980,12 +989,16 @@ def plot_dotplot(
     add_connections(fig, connections, query_genes, query_gene_colors, label_offset)
 
     dot_start = right_start + target_G // 3
+    cbar_start = right_start + 2 * (target_G // 3)
+
+    if cbar_start - dot_start < 3:
+        cbar_start = dot_start + 3
+
     dot_legend = fig.add_subplot(ax[dot_start : (dot_start + 1), -5:])
     plot_dot_legend(dot_legend)
 
-    cbar_start = right_start + 2 * target_G // 3
-    cbar_legend = fig.add_subplot(ax[cbar_start : (cbar_start + 1), -3:])
-    plot_colorbar_legend(cbar_legend, query_avg_expr, target_avg_expr)
+    cbar_legend = fig.add_subplot(ax[cbar_start : (cbar_start + 1), -5:])
+    plot_colorbar_legend(cbar_legend, query_avg_expr, target_avg_expr, cmap=cmap)
 
     plt.savefig(output)
 

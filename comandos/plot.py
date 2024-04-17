@@ -11,6 +11,7 @@ from typing import Any, Tuple, Union
 import anndata as ad
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.colors import Colormap
 import numpy as np
 import pandas as pd
 import plotly
@@ -373,6 +374,10 @@ def paired_dotplot(
     title: Union[str, None] = None,  # overall title of the plot (default: None).
     title_font_size: float = 16,  # font size of the overall plot title (default: 16).
     scale: bool = False,  # whether to scale the expression values to be between 0 and 1 for each gene (default: False).
+    cmap: Colormap = "magma_r",  # colormap to use for the dotplot (default: "viridis").
+    layer: Union[
+        str, None
+    ] = None,  # layer : Union[str, None], optional The layer to use for the average expression calculation. If not specified, it will use the `.X` slot of the `AnnData` objects. It is vital to set this correctly to avoid calculating average expression on log1p-transformed data (default: None).
 ) -> None:
     # make a local copy, since connections is mutable
     # and we might change it inadvertently
@@ -391,11 +396,12 @@ def paired_dotplot(
         target_genes=target_genes,
         query_gene_names=query_gene_names,
         target_gene_names=target_gene_names,
+        layer=layer,
     )
     # scale the expression values to be between 0 and 1 for each gene
     if scale:
-        query_avg_expr = util.rescale(query_avg_expr)
-        target_avg_expr = util.rescale(target_avg_expr)
+        query_avg_expr = util.rescale(query_avg_expr).fillna(0)
+        target_avg_expr = util.rescale(target_avg_expr).fillna(0)
     # get expression percentage for each dot
     query_perc_expr, target_perc_expr = du.get_dot_size(
         query,
@@ -494,6 +500,7 @@ def paired_dotplot(
             center=center,
             title=title,
             title_font_size=title_font_size,
+            cmap=cmap,
         )
     else:
         pass
