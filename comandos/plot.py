@@ -8,6 +8,7 @@ import os
 import pickle
 from typing import Any, Tuple, Union
 
+import scanpy as sc
 import anndata as ad
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -18,7 +19,6 @@ import plotly
 import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
-import scanpy as sc
 import seaborn as sns
 from matplotlib.patches import Circle, Rectangle
 from plotly.subplots import make_subplots
@@ -400,8 +400,8 @@ def paired_dotplot(
     )
     # scale the expression values to be between 0 and 1 for each gene
     if scale:
-        query_avg_expr = util.rescale(query_avg_expr).fillna(0)
-        target_avg_expr = util.rescale(target_avg_expr).fillna(0)
+        query_avg_expr = util.rescale(query_avg_expr.T).fillna(0).T
+        target_avg_expr = util.rescale(target_avg_expr.T).fillna(0).T
     # get expression percentage for each dot
     query_perc_expr, target_perc_expr = du.get_dot_size(
         query,
@@ -504,3 +504,5 @@ def paired_dotplot(
         )
     else:
         pass
+
+    # return query_avg_expr, target_avg_expr
