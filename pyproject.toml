@@ -12,7 +12,7 @@ license = {text = "Apache-2.0"}
 authors = [{name = "Niko Papadopoulos", email = "nikolaos.papadopoulos@univie.ac.at"}]
 keywords = ['nbdev', 'jupyter', 'notebook', 'python']
 classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
-dependencies = ['fastcore', 'jupyterlab', 'black', 'scanpy', 'seaborn', 'plotly', 'sam-algorithm', 'samap']
+dependencies = ['fastcore', 'jupyterlab', 'black', 'scanpy', 'seaborn', 'plotly', 'sc-sam', 'sc-samap']
 
 [project.urls]
 Repository = "https://github.com/galicae/comandos"
